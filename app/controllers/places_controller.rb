@@ -1,7 +1,9 @@
 class PlacesController < ApplicationController
+  before_action :current_user
 
   def index
     @places = Place.all
+    @posts = Post.all
   end
 
   def show
@@ -14,10 +16,15 @@ class PlacesController < ApplicationController
   end
 
   def create
+    if @current_user
     @place = Place.new
     @place["name"] = params["place"]["name"]
+    @place["user_id"] = @current_user["id"]
     @place.save
-    redirect_to "/places"
+  else 
+    flash["notice"] = "Login first"
+  end
+  redirect_to "/places"
   end
 
 end
