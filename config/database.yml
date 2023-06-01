@@ -22,4 +22,7 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  database: cbasarahw4_production
+  username: cbasarahw4
+  password: <%= ENV["CBASARAHW4_DATABASE_PASSWORD"] %>
