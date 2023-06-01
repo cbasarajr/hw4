@@ -23,6 +23,6 @@ test:
 production:
   <<: *default
   adapter: postgresql
-  database: cbasarahw4_production
-  username: cbasarahw4
-  password: <%= ENV["CBASARAHW4_DATABASE_PASSWORD"] %>
+  database: cbasarajr_hw4_production
+  username: cbasarajr_hw4
+  password: <%= ENV["CBASARAJR_HW4_DATABASE_PASSWORD"] %>
